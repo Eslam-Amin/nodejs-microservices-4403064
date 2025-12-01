@@ -38,7 +38,7 @@ class CatalogClient {
     try{
       const result = await ServiceClient.callService("catalog-service",{
         method:"get",
-        url:`/items/:${itemId}`
+        url:`/items/${itemId}`
       });
       // return ItemModel.findById(itemId).exec();
       return result
@@ -79,7 +79,7 @@ class CatalogClient {
          try{
       const result = await ServiceClient.callService("catalog-service",{
         method:"put",
-        url:`/items/:${itemId}`,
+        url:`/items/${itemId}`,
         data
       });
       // return ItemModel.findByIdAndUpdate(itemId, data, { new: true }).exec();
@@ -99,7 +99,7 @@ class CatalogClient {
      try{
       const result = await ServiceClient.callService("catalog-service",{
         method:"delete",
-        url:`/items/:${itemId}`
+        url:`/items/${itemId}`
       });
       // return ItemModel.deleteOne({ _id: itemId }).exec();
       return result
