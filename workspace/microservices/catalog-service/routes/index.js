@@ -1,12 +1,12 @@
 const express = require("express");
 
-const CatalogClient = require("../lib/CatalogClient");
+const CatalogService = require("../lib/CatalogService");
 
 const router = express.Router();
 
 router.get("/items", async (req, res) => {
   try{
-    const items = await CatalogClient.getAll();
+    const items = await CatalogService.getAll();
     return res.json(items);
   }catch(error){
     console.error(error);
@@ -16,7 +16,7 @@ router.get("/items", async (req, res) => {
 
 router.post("/items", async (req, res) => {
   try{
-    const newItem = await CatalogClient.create(req.body);
+    const newItem = await CatalogService.create(req.body);
     return res.json(newItem);
   }catch(error){
     console.error(error);
@@ -26,7 +26,7 @@ router.post("/items", async (req, res) => {
 
 router.get("/items/:id", async(req, res)=>{
   try{
-    const item = await CatalogClient.getOne(req.params.id)
+    const item = await CatalogService.getOne(req.params.id)
     if(!item){
       return res.status(404).json({error:"Item not found"});
     }
@@ -39,7 +39,7 @@ router.get("/items/:id", async(req, res)=>{
 
 router.put("/items/:id", async(req, res)=>{
   try{
-    const updatedItem = await CatalogClient.update(req.params.id, req.body)
+    const updatedItem = await CatalogService.update(req.params.id, req.body)
     if(!updatedItem){
       return res.status(404).json({error:"Item not found"});
     }
@@ -52,7 +52,7 @@ router.put("/items/:id", async(req, res)=>{
 
 router.delete("/items/:id", async(req, res)=>{
   try{
-    const deletionresult = await CatalogClient.remove(req.params.id)
+    const deletionresult = await CatalogService.remove(req.params.id)
     if(!deletionresult.deletedCount === 0){
       return res.status(404).json({error:"Item not found"});
     }

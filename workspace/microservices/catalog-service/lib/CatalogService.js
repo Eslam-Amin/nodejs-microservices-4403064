@@ -1,4 +1,4 @@
-/** @module CatalogClient */
+/** @module CatalogService */
 
 // Import the Item model from mongoose
 const ItemModel = require("../models/Item");
@@ -6,7 +6,7 @@ const ItemModel = require("../models/Item");
 /**
  * Service class for interacting with the Item catalog
  */
-class CatalogClient {
+class CatalogService {
   /**
    * Get all items from the database, sorted in descending order by creation time
    * @returns {Promise<Array>} - A promise that resolves to an array of Items
@@ -54,4 +54,4 @@ class CatalogClient {
   }
 }
 
-module.exports = CatalogClient;
+module.exports = CatalogService;
