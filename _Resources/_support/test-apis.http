@@ -68,6 +68,9 @@ GET http://localhost:3080/find/myservice/*
 ###
 GET http://localhost:3080/find/myotherservice/*
 
+###
+GET http://localhost:3080/find/user-service/*
+
 
 // Unregistering a service
 ###
