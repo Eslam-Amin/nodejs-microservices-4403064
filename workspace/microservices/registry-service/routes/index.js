@@ -31,7 +31,7 @@ router.delete("/register/:serviceName/:serivceVersion/:servicePort",(req, res, n
   const key = registery.unregister(serviceName, serivceVersion,serviceIp, servicePort);
   return res.json({result: key})
 })
- 
+
 
 
 
